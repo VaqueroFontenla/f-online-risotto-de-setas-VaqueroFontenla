@@ -25,6 +25,10 @@
   border: 3px solid #dfdfdf;
 }
 
+hr {
+  margin: 0;
+}
+
 .recipe__name {
   padding-top: 30px;
   display: -webkit-box;
@@ -57,6 +61,7 @@
   list-style-type: none;
   overflow-y: scroll;
   height: 220px;
+  margin: 0;
 }
 
 .ingredients-list .article {
@@ -98,22 +103,26 @@
 .ingredients-list .article .article__block1 .checkbox:before {
   content: "";
   position: absolute;
-  width: 13px;
-  height: 13px;
+  width: 15px;
+  height: 15px;
   background-color: #fff;
   border: 1px solid #999;
   display: block;
 }
 
+.ingredients-list .article .article__block1 .checkbox:checked:before {
+  background-color: #1481BA;
+}
+
 .ingredients-list .article .article__block1 .checkbox:checked:after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 5px;
-  width: 13px;
-  height: 6px;
-  border-left: 2px solid #FE5D26;
-  border-bottom: 2px solid #FE5D26;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 7px;
+  border-left: 3px solid #fff;
+  border-bottom: 3px solid #fff;
   -webkit-transform: rotateZ(-45deg);
   transform: rotateZ(-45deg);
 }
@@ -182,7 +191,7 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding: 30px 50px 0;
+  padding: 30px 50px;
 }
 
 .costs .shipping-cost,.costs .subtotal,.costs .total {
@@ -212,18 +221,6 @@
   font-family: Arial;
 }
 
-.costs .buy {
-  margin-top: 20px;
-  height: 50px;
-  font-size: 20px;
-  border-radius: 5px;
-  background-color: #478e2b;
-  color: #fff;
-  padding-bottom: 0;
-  cursor: pointer;
-  outline: none;
-}
-
 .items__text,.shipping__text,.subtotal__text {
   color: #999;
 }
@@ -236,6 +233,16 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.buy__button {
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=main.css.map */
