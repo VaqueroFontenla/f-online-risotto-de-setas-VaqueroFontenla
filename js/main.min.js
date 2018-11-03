@@ -31,6 +31,7 @@ function showIngredients(ingredients, currency) {
   for (const ingredient of ingredients) {
     list +=
       '<li class="article">' +
+      '<div class="article__group">' +
       '<div class="article__block1">' +
       '<input type="checkbox" name="product" id="product' + ingredient.items + '"  class="checkbox"/>' +
       '<input type="number" class="quantity" name="quantity" min="0" max="10" value="1"/>' +
@@ -39,6 +40,7 @@ function showIngredients(ingredients, currency) {
       '<span class="product">' + ingredient.product + '</span>' +
       '<span class="brand">' + (ingredient.brand ? ingredient.brand : '') + '</span>' +
       '<span class="items">' + ingredient.quantity + '</span>' +
+      '</div>' +
       '</div>' +
       '<div class="article__block3">' +
       '<span class="price">' + parseFloat(ingredient.price).toFixed(2) + '</span> ' +

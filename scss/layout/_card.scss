@@ -21,6 +21,9 @@
   font-weight: $font-bold;
 }
 
+
+// Section select ingredients
+
 .ingredients-list {
 	list-style-type: none;
 	overflow-y: scroll;
@@ -31,12 +34,10 @@
 		align-items: center;
 		justify-content: space-between;
 		border-bottom: 1px solid $colorLightGrey;
-		label {
-			display: flex;
-			justify-content: space-between;
-			width: 100%;
-			cursor: pointer;
-		}
+
+    .article__group {
+      display: flex;
+    }
 
 		.article__block1 {
 			display: flex;
@@ -74,19 +75,35 @@
 				}
 			}
 
-			.quantity {
-				display: flex;
-				width: 40px;
-				height: 40px;
-				line-height: 40px;
-				font-size: 20px;
-				color: $colorBlue;
-				text-align: center;
-				margin-right: 20px;
-			}
+      .quantity {
+        display: flex;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 20px;
+        color: $colorBlue;
+        text-align: center;
+        margin-right: 20px;
+      }
 		}
 
-		.article__block2 {
+    .article__block2 {
+      display: flex;
+      flex-direction: column;
+      .product {
+        font-weight: $font-bold;
+      }
+      .brand {
+        font-size: $font-size-s;
+        color: $colorGrey
+      }
+      .items {
+        font-size: $font-size-s;
+      }
+    }
+
+
+		.article__block3 {
 			.price {
 				color: $colorGreen;
 				font-size: 20px;
@@ -109,4 +126,60 @@
 		}
 
 	}
+}
+
+
+// Section costs
+.costs {
+	display: flex;
+  flex-direction: column;
+	padding: 30px 50px 0;
+
+	.shipping-cost,
+	.subtotal,
+	.total {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 10px;
+		padding: 5px 0;
+
+		.total__text {
+			font-family: Arial;
+			font-weight: 700;
+			display: flex;
+			align-self: center;
+		}
+
+		.total__resume {
+			font-size: 24px;
+			color: $colorGreen;
+			font-family: Arial;
+		}
+	}
+
+	.buy {
+		margin-top: 20px;
+		height: 50px;
+		font-size: 20px;
+		border-radius: 5px;
+		background-color: $colorGreen;
+		color: $colorWhite;
+		padding-bottom: 0;
+		cursor: pointer;
+		outline: none;
+	}
+}
+
+.items__text,
+.shipping__text,
+.subtotal__text {
+	color: $colorGrey;
+}
+
+.items__text {
+	font-size: 14px;
+}
+
+.price {
+	display: flex;
 }
