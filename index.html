@@ -3,52 +3,61 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Adalab Web Starter Kit</title>
+	<title>Rissoto de Setas</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-	<header>
-		<div class="container">
-			<h1 class="name-recipe"></h1>
-		</div>
-	</header>
-	<main>
-		<ul class="ingredients-list">
+	<div class="wrapper">
+		<main>
+			<div class="card">
+				<section class="recipe__name">
+					<div class="container">
+						<p class="ingredients">INGREDIENTES</p>
+						<h1 class="name-recipe"></h1>
+						<ul class="select__articles">
+							<li class="select__all"><a href="#">Seleccionar todo<span>|</span></a></li>
+							<li class="unselect__all"><a href="#">Deseleccionar todo</a></li>
+						</ul>
+					</div>
+				</section>
+				<ul class="ingredients-list">
 
-		</ul>
+				</ul>
 
-	</main>
-	<section>
-		<div class="items">
-			<span class="items__text">Items: </span>
-			<span class="items__number">0</span>
-		</div>
-		<div class="subtotal">
-			<span class="subtotal__text">Subtotal </span>
+		</main>
+		<section>
+			<div class="items">
+				<span class="items__text">Items: </span>
+				<span class="items__number">0</span>
+			</div>
+			<div class="subtotal">
+				<span class="subtotal__text">Subtotal </span>
 
-			<div class="subTotal__info">
-				<span class="subtotal__price">0.00</span>
-				<span class="subtotal__currency">€</span>
+				<div class="subTotal__info">
+					<span class="subtotal__price">0.00</span>
+					<span class="subtotal__currency">€</span>
+				</div>
 			</div>
-		</div>
-		<div class="shipping-cost">
-			<span class="shipping__text">Costes de envío </span>
-			<div class="shipping">
-				<span class="shipping__price"></span>
-				<span class="currency"></span>
+			<div class="shipping-cost">
+				<span class="shipping__text">Costes de envío </span>
+				<div class="shipping">
+					<span class="shipping__price"></span>
+					<span class="currency"></span>
+				</div>
 			</div>
-		</div>
-		<div class="total">
-			<span class="total__text">Total </span>
-			<div class="total__resume">
-				<span class="total__price">0.00</span>
-				<span class="currency"> €</span>
+			<div class="total">
+				<span class="total__text">Total </span>
+				<div class="total__resume">
+					<span class="total__price">0.00</span>
+					<span class="currency"> €</span>
+				</div>
 			</div>
+		</section>
 		</div>
-	</section>
+	</div>
 	<script type="text/javascript" src=" js/main.js"></script>
 </body>
 
