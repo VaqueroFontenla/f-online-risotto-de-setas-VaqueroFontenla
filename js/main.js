@@ -34,13 +34,13 @@ function showIngredients(ingredients, currency) {
       '<div class="article__block1">' +
       '<input type="checkbox" name="product" id="product' + ingredient.items + '"  class="checkbox"/>' +
       '<input type="number" class="quantity" name="quantity" min="0" max="10" value="1"/>' +
-      '<div class="group">' +
-      '<span class="product">' + ingredient.product + '</span>' +
-      '<span class="brand">' + (ingredient.brand ? ingredient.brand : '') + '</span>' +
-      '<span class="items">' + parseFloat(ingredient.quantity) + '</span>' +
-      '</div>' +
       '</div>' +
       '<div class="article__block2">' +
+      '<span class="product">' + ingredient.product + '</span>' +
+      '<span class="brand">' + (ingredient.brand ? ingredient.brand : '') + '</span>' +
+      '<span class="items">' + ingredient.quantity + '</span>' +
+      '</div>' +
+      '<div class="article__block3">' +
       '<span class="price">' + parseFloat(ingredient.price).toFixed(2) + '</span> ' +
       '<span class="currency">' + currency + '</span>' +
       '</div>' +
@@ -87,4 +87,4 @@ function unselectAll() {
 
 select.addEventListener('click', selectAll);
 unselect.addEventListener('click', unselectAll);
-document.querySelector('.checkbox').addEventListener('click', 'getIngredients');
+//document.querySelector('.checkbox').addEventListener('click', 'getIngredients');
