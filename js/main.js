@@ -6,6 +6,12 @@ const shippingCostHTML = document.querySelector('.shipping__price');
 const currencyHTML = document.querySelector('.currency');
 const select = document.querySelector('.select__all');
 const unselect = document.querySelector('.unselect__all');
+const itemsNumber = document.querySelector('.items__number');
+const subtotalPrice = document.querySelector('.subtotal__price');
+const totalPrice = document.querySelector('.total__price');
+let quantityItems = 1;
+
+// LLamada a la API
 
 fetch('https://raw.githubusercontent.com/Adalab/recipes-data/master/rissoto-setas.json')
   .then((response) => {
@@ -20,8 +26,10 @@ fetch('https://raw.githubusercontent.com/Adalab/recipes-data/master/rissoto-seta
     const shippingCost = data.recipe["shipping-cost"];
     showShippingCost(shippingCost);
     showCurrency(currency);
+    selectIngredients();
   });
 
+// Mostrar los valores de la receta
 
 function showNameRecipe(recipe) {
   nameRecipe.innerHTML = recipe
@@ -33,8 +41,9 @@ function showIngredients(ingredients, currency) {
       '<li class="article">' +
       '<div class="article__group">' +
       '<div class="article__block1">' +
-      '<input type="checkbox" name="product" id="product' + ingredient.items + '"  class="checkbox"/>' +
-      '<input type="number" class="quantity" name="quantity" min="0" max="10" value="1"/>' +
+      '<input type="checkbox" name="product" id="product' + ingredient.items + ' "class="checkbox" value= ' + ingredient.price.toFixed(2) +
+      '/>' +
+      '<input type="number" class="quantity" name="quantity" min="0" max="10" value="' + ingredient.items + '"/>' +
       '</div>' +
       '<div class="article__block2">' +
       '<span class="product">' + ingredient.product + '</span>' +
@@ -49,6 +58,7 @@ function showIngredients(ingredients, currency) {
       '</li>';
   }
   ingredientsList.innerHTML = list;
+  const checkbox = document.querySelector('.checkbox');
 }
 
 function showShippingCost(shippingCost) {
@@ -60,15 +70,51 @@ function showCurrency(currency) {
 };
 
 
+// Obtenemos los valores de cantidad y el número total de items
+
+function selectIngredients() {
+  const checkbox = document.querySelectorAll('.checkbox');
+  const quantity = document.querySelectorAll('.quantity');
+  checkbox.forEach((check) => {
+    return check.addEventListener('click', getIngredients);
+  });
+  quantity.forEach((q) => {
+    return q.addEventListener('click', blabla);
+  });
+}
+
+function blabla(e) {
+
+  quantityItems = parseFloat(e.target.value);
+
+  return quantityItems;
+}
+console.log(quantityItems)
+
 function getIngredients() {
-  console.log('Vir');
-  // for (const ingredientRecipe of ingredientsRecipe) {
-  //   //console.log('no me lo creo');
-  //   if (ingredientRecipe.checked = true) {
-  //     console.log('no me lo creo')
-  //   }
-  // }
-  //console.log(ingredientRecipe.checked)
+  const checkboxChecked = document.querySelectorAll('.checkbox:checked');
+  const quantity = document.querySelectorAll('.quantity');
+  let totalItems = checkboxChecked.length;
+  itemsNumber.innerHTML = totalItems;
+  let subTotal = 0;
+  let total = 0;
+  //let quantityItems = 0;
+
+
+  for (let i = 0; i < checkboxChecked.length; i++) {
+    // if (e.returnValue = true) {
+    //   quantityItems = parseFloat(e.target.value);
+    // } else {
+    //   quantityItems = 1;
+    // }
+
+
+    //console.log(e)
+    subTotal += parseFloat(checkboxChecked[i].defaultValue) * quantityItems;
+    subtotalPrice.innerHTML = subTotal;
+    total = subTotal + parseFloat(shippingCostHTML.innerHTML);
+    totalPrice.innerHTML = total;
+  }
 }
 
 /* Menú para seleccionar/deseleccionar todos los items */
@@ -89,4 +135,3 @@ function unselectAll() {
 
 select.addEventListener('click', selectAll);
 unselect.addEventListener('click', unselectAll);
-//document.querySelector('.checkbox').addEventListener('click', 'getIngredients');
