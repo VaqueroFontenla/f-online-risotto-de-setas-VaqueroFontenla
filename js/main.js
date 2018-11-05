@@ -9,6 +9,7 @@ const unselect = document.querySelector('.unselect__all');
 const itemsNumber = document.querySelector('.items__number');
 const subtotalPrice = document.querySelector('.subtotal__price');
 const totalPrice = document.querySelector('.total__price');
+const totalButton = document.querySelector('.total__button');
 let quantityItems = 1;
 
 // LLamada a la API
@@ -114,6 +115,7 @@ function getIngredients() {
     subtotalPrice.innerHTML = subTotal;
     total = subTotal + parseFloat(shippingCostHTML.innerHTML);
     totalPrice.innerHTML = total;
+    totalButton.innerHTML = total;
   }
 }
 
