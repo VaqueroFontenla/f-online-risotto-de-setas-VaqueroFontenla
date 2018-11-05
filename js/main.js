@@ -10,7 +10,6 @@ const itemsNumber = document.querySelector('.items__number');
 const subtotalPrice = document.querySelector('.subtotal__price');
 const totalPrice = document.querySelector('.total__price');
 const totalButton = document.querySelector('.total__button');
-let quantityItems = 1;
 
 // LLamada a la API
 
@@ -80,42 +79,24 @@ function selectIngredients() {
     return check.addEventListener('click', getIngredients);
   });
   quantity.forEach((q) => {
-    return q.addEventListener('click', blabla);
+    return q.addEventListener('click', getIngredients);
   });
 }
 
-function blabla(e) {
-
-  quantityItems = parseFloat(e.target.value);
-
-  return quantityItems;
-}
-console.log(quantityItems)
-
 function getIngredients() {
   const checkboxChecked = document.querySelectorAll('.checkbox:checked');
-  const quantity = document.querySelectorAll('.quantity');
   let totalItems = checkboxChecked.length;
   itemsNumber.innerHTML = totalItems;
   let subTotal = 0;
   let total = 0;
-  //let quantityItems = 0;
 
-
-  for (let i = 0; i < checkboxChecked.length; i++) {
-    // if (e.returnValue = true) {
-    //   quantityItems = parseFloat(e.target.value);
-    // } else {
-    //   quantityItems = 1;
-    // }
-
-
-    //console.log(e)
-    subTotal += parseFloat(checkboxChecked[i].defaultValue) * quantityItems;
-    subtotalPrice.innerHTML = subTotal;
+  for (let check of checkboxChecked) {
+    const quantity = check.nextSibling.value;
+    subTotal += parseFloat(check.defaultValue) * quantity;
+    subtotalPrice.innerHTML = subTotal.toFixed(2);
     total = subTotal + parseFloat(shippingCostHTML.innerHTML);
-    totalPrice.innerHTML = total;
-    totalButton.innerHTML = total;
+    totalPrice.innerHTML = total.toFixed(2);
+    totalButton.innerHTML = total.toFixed(2);
   }
 }
 
