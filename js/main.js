@@ -84,15 +84,19 @@ function selectIngredients() {
 }
 
 function getIngredients() {
-  const checkboxChecked = document.querySelectorAll('.checkbox:checked');
-  let totalItems = checkboxChecked.length;
+  const checkbox = document.querySelectorAll('.checkbox');
+  let totalItems = checkbox.length;
   itemsNumber.innerHTML = totalItems;
   let subTotal = 0;
   let total = 0;
 
-  for (let check of checkboxChecked) {
-    const quantity = check.nextSibling.value;
-    subTotal += parseFloat(check.defaultValue) * quantity;
+  for (let check of checkbox) {
+    if (check.checked === true) {
+      const quantity = check.nextSibling.value;
+      subTotal += parseFloat(check.defaultValue) * quantity;
+    } else if (check.checked === false) {
+      subTotal == '00.00';
+    }
     subtotalPrice.innerHTML = subTotal.toFixed(2);
     total = subTotal + parseFloat(shippingCostHTML.innerHTML);
     totalPrice.innerHTML = total.toFixed(2);
