@@ -85,7 +85,8 @@ function selectIngredients() {
 
 function getIngredients() {
   const checkbox = document.querySelectorAll('.checkbox');
-  let totalItems = checkbox.length;
+  const checkboxChecked = document.querySelectorAll('.checkbox:checked');
+  let totalItems = checkboxChecked.length;
   itemsNumber.innerHTML = totalItems;
   let subTotal = 0;
   let total = 0;
