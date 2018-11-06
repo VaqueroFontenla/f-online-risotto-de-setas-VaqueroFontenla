@@ -79,7 +79,7 @@ function selectIngredients() {
     return check.addEventListener('click', getIngredients);
   });
   quantity.forEach((q) => {
-    return q.addEventListener('click', getIngredients);
+    return q.addEventListener('change', getIngredients);
   });
 }
 
@@ -112,6 +112,7 @@ function selectAll() {
   for (let i = 0; i < checkedAll.length; i++) {
     checkedAll[i].checked = 1;
   }
+  getIngredients()
 }
 
 function unselectAll() {
@@ -119,6 +120,7 @@ function unselectAll() {
   for (let i = 0; i < uncheckedAll.length; i++) {
     uncheckedAll[i].checked = 0;
   }
+  getIngredients()
 }
 
 select.addEventListener('click', selectAll);
